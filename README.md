@@ -1,1 +1,2 @@
 # RobotWars
+Thanks for taking the time to review my RobotWars submission. It can be run using the usual npm start (there are only dev dependencies), and the tests can be run using npm test. Due to where I decided to draw a line under developing this more neither of these will tell you much. However, it will give you an insight into my thought process and how I developed it and set it up for further development.
