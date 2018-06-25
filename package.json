@@ -1,0 +1,32 @@
+{
+  "name": "robot-wars",
+  "version": "0.1.0",
+  "description": "CMD application that navigates a robot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "debug": "node --inspect-brk index.js",
+    "test": "mocha"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it"
+    ]
+  },
+  "engines": {
+    "node": "4.0.0"
+  },
+  "author": "Steve Hornsey",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.0.0-alpha.2",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^12.0.0-alpha.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "mocha": "^5.2.0"
+  }
+}
