@@ -1,9 +1,9 @@
 
 class Arena {
-	constructor ({grid, robots}, parameters) {
+	constructor (dependencies, parameters) {
+		const {grid, robots} = dependencies
 		this.robots = robots
 		this.grid = grid
-		// the arena needs to take a grid..
 	}
 
 	executeRobotCommands (id, commands) {

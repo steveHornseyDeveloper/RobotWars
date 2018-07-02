@@ -1,6 +1,7 @@
 
 class Robot {
-	constructor (dependencies, {id, coordinates, orientation}) {
+	constructor (dependencies, robotDetails) {
+		const {id, coordinates, orientation} = robotDetails
 		this.id = id
 		this.coordinates = coordinates
 		this.orientation = orientation

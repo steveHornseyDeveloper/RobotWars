@@ -1,7 +1,8 @@
 const Coordinates = require('./models/coordinates')
 
 module.exports = class {
-	constructor (dependencies, {eastLimit, northLimit}) {
+	constructor (dependencies, gridDetails) {
+		const {eastLimit, northLimit} = gridDetails
 		this.northLimit = northLimit
 		this.eastLimit = eastLimit
 	}

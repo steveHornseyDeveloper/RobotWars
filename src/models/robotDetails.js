@@ -3,6 +3,6 @@ module.exports = class {
 		this.id = id
 		this.startLocation = startLocation
 		this.orientation = orientation
-		this.initialCommands = initialCommands.split('')
+		this.initialCommands = initialCommands
 	}
 }
