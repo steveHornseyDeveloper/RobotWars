@@ -2,7 +2,7 @@ const Arena = require('../src/arena')
 const assert = require('assert')
 
 describe('Arena tests', function () {
-	it.only('executeCommands', function () {
+	it('executeCommands', function () {
 		var callCount = 0
 		var commands = ['', '', '', '']
 		const mockRobot = {

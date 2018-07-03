@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "debug": "node --inspect-brk index.js",
-    "test": "mocha"
+    "test": "mocha",
+    "testWatch": "mocha -w"
   },
   "standard": {
     "globals": [

@@ -13,9 +13,9 @@ module.exports = class {
 			newCoordinates.north = initialCoordinates.north + 1
 		} else if (direction === 'E') {
 			newCoordinates.east = initialCoordinates.east + 1
-		} else if (this.orientation === 'S') {
+		} else if (direction === 'S') {
 			newCoordinates.north = initialCoordinates.north - 1
-		} else if (this.orientation === 'W') {
+		} else if (direction === 'W') {
 			newCoordinates.east = initialCoordinates.east - 1
 		}
 
