@@ -3,48 +3,59 @@ const Grid = require('../src/grid')
 const assert = require('assert')
 const GridDetails = require('../src/models/gridDetails')
 
-describe('Robot movement tests in large space', function () {
-	var gridDetails, startCoordinates, startNorth, startEast
-	beforeEach(function () {
-		startNorth = 1
-		startEast = 1
-		startCoordinates = new Coordinates(startEast, startNorth)
-		gridDetails = new GridDetails(99, 99)
+describe('Grid tests', function () {
+	describe('Grid constructor tests', function () {
+		it('All fields valid', function () {
+			var gridDetails = new GridDetails(4, 8)
+			var grid = new Grid(undefined, gridDetails)
+
+			assert(grid.eastLimit, gridDetails.eastLimit)
+			assert(grid.northLimit, gridDetails.northLimit)
+		})
 	})
+	describe('Robot movement tests in large space', function () {
+		var gridDetails, startCoordinates, startNorth, startEast
+		beforeEach(function () {
+			startNorth = 1
+			startEast = 1
+			startCoordinates = new Coordinates(startEast, startNorth)
+			gridDetails = new GridDetails(99, 99)
+		})
 
-	it('move north', function () {
-		var grid = new Grid(null, gridDetails)
+		it('move north', function () {
+			var grid = new Grid(null, gridDetails)
 
-		const newPosition = grid.move(startCoordinates, 1, 'N')
+			const newPosition = grid.move(startCoordinates, 1, 'N')
 
-		assert.equal(startNorth + 1, newPosition.north)
-		assert.equal(startEast, newPosition.east)
-	})
+			assert.equal(startNorth + 1, newPosition.north)
+			assert.equal(startEast, newPosition.east)
+		})
 
-	it('move east', function () {
-		var grid = new Grid(null, gridDetails)
+		it('move east', function () {
+			var grid = new Grid(null, gridDetails)
 
-		const newPosition = grid.move(startCoordinates, 1, 'E')
+			const newPosition = grid.move(startCoordinates, 1, 'E')
 
-		assert.equal(startNorth, newPosition.north)
-		assert.equal(startEast + 1, newPosition.east)
-	})
+			assert.equal(startNorth, newPosition.north)
+			assert.equal(startEast + 1, newPosition.east)
+		})
 
-	it('move west', function () {
-		var grid = new Grid(null, gridDetails)
+		it('move west', function () {
+			var grid = new Grid(null, gridDetails)
 
-		const newPosition = grid.move(startCoordinates, 1, 'W')
+			const newPosition = grid.move(startCoordinates, 1, 'W')
 
-		assert.equal(startNorth, newPosition.north)
-		assert.equal(startEast - 1, newPosition.east)
-	})
+			assert.equal(startNorth, newPosition.north)
+			assert.equal(startEast - 1, newPosition.east)
+		})
 
-	it('move south', function () {
-		var grid = new Grid(null, gridDetails)
+		it('move south', function () {
+			var grid = new Grid(null, gridDetails)
 
-		const newPosition = grid.move(startCoordinates, 1, 'S')
+			const newPosition = grid.move(startCoordinates, 1, 'S')
 
-		assert.equal(startNorth - 1, newPosition.north)
-		assert.equal(startEast, newPosition.east)
+			assert.equal(startNorth - 1, newPosition.north)
+			assert.equal(startEast, newPosition.east)
+		})
 	})
 })

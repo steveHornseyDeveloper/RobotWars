@@ -1,9 +1,9 @@
 
 class Robot {
 	constructor (dependencies, robotDetails) {
-		const {id, coordinates, orientation} = robotDetails
+		const {id, startLocation, orientation} = robotDetails
 		this.id = id
-		this.coordinates = coordinates
+		this.coordinates = startLocation
 		this.orientation = orientation
 	}
 
