@@ -15,7 +15,7 @@ module.exports = (initialisationData) => {
 		} else if (!isEven(i)) {
 			var startInfo = row.split(' ')
 			let coordinates = new Coordinates(startInfo[0], startInfo[1])
-			let robotDetail = new RobotDetails(i, coordinates, startInfo[2], (initialisationData[i + 1]).split(''))
+			let robotDetail = new RobotDetails(robotDetails.length + 1, coordinates, startInfo[2], (initialisationData[i + 1]).split(''))
 			robotDetails.push(robotDetail)
 		}
 	})
