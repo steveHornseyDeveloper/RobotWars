@@ -18,11 +18,14 @@ async function runApplication () {
 	var initialisationData = await fileReader({fileReader: fs.readFile}, 'input.txt')
 
 	var arenaDetail = parseInput(initialisationData.split('\r\n'))
-	var arena = createArena(arenaDetail)
 
+	var arena = createArena(arenaDetail)
 	arenaDetail.robotDetails.forEach(robot => {
-		// should the arena take premade robots so we have the id rather than the matching array index?
 		arena.executeRobotCommands(robot.id, robot.initialCommands)
 	})
-	// getRobotPositions then log to console.
+	const robotLocations = arena.getRobotPositions()
+
+	robotLocations.forEach(location => {
+		console.log(`${location.coordinates.east} ${location.coordinates.north} ${location.orientation}`)
+	})
 }
