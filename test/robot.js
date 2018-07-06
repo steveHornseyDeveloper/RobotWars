@@ -25,25 +25,59 @@ describe('Robot tests', function () {
 	describe('Robot rotation tests', function () {
 		var coordinates = new Coordinates(0, 0)
 		it('rotate left', function () {
-			var robot = new Robot(undefined, {coordinates, orientation: 'N'})
+			var robotDetails = new RobotDetails(1, coordinates, 'N', [])
+			var robot = new Robot(undefined, robotDetails)
 
 			robot.doCommand('L')
 
 			assert.equal('W', robot.orientation)
 		})
 		it('rotate right', function () {
-			var robot = new Robot(undefined, {coordinates, orientation: 'N'})
+			var robotDetails = new RobotDetails(1, coordinates, 'N', [])
+			var robot = new Robot(undefined, robotDetails)
 
 			robot.doCommand('R')
 
 			assert.equal('E', robot.orientation)
 		})
 		it('rotate right (back to North)', function () {
-			var robot = new Robot(undefined, {coordinates, orientation: 'W'})
+			var robotDetails = new RobotDetails(1, coordinates, 'W', [])
+			var robot = new Robot(undefined, robotDetails)
 
 			robot.doCommand('R')
 
 			assert.equal('N', robot.orientation)
+		})
+	})
+
+	describe('Robot move tests', function () {
+		const coordinates = new Coordinates(0, 0)
+		it('calls the grid move function', function () {
+			var wasCalled = false
+			var robotDetails = new RobotDetails(1, coordinates, 'W', [])
+			var robot = new Robot(undefined, robotDetails)
+			const mockGrid = {
+				move: () => {
+					wasCalled = true
+				}
+			}
+
+			robot.doCommand('M', mockGrid)
+
+			assert.equal(wasCalled, true)
+		})
+
+		it('robot\'s new position is updated', function () {
+			var robotDetails = new RobotDetails(1, coordinates, 'W', [])
+			var robot = new Robot(undefined, robotDetails)
+			const newCoordinates = new Coordinates(2, 6)
+			const mockGrid = {
+				move: function () { return newCoordinates }
+			}
+
+			robot.doCommand('M', mockGrid)
+
+			assert.equal(robot.coordinates, newCoordinates)
 		})
 	})
 
