@@ -13,7 +13,7 @@ describe('Parse input tests', function () {
 		assert.equal(arenaDetails.gridDetails.northLimit, northLimit)
 	})
 
-	it('parses a start position correctly', function () {
+	it('parses a start position correctly to an int', function () {
 		const east = 6
 		const north = 8
 		const input = [
@@ -22,6 +22,8 @@ describe('Parse input tests', function () {
 			''
 		]
 		const arenaDetails = parseInput(input)
+		assert.equal(typeof arenaDetails.robotDetails[0].startLocation.east, 'number')
+		assert.equal(typeof arenaDetails.robotDetails[0].startLocation.north, 'number')
 		assert.equal(arenaDetails.robotDetails[0].startLocation.east, east)
 		assert.equal(arenaDetails.robotDetails[0].startLocation.north, north)
 	})

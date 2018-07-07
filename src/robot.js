@@ -21,7 +21,7 @@ class Robot {
 module.exports = Robot
 
 function move (grid) {
-	grid.move(this.coordinates, 1, this.orientation)
+	this.coordinates = grid.move(this.coordinates, 1, this.orientation)
 }
 
 function rotate (direction) {

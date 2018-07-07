@@ -14,7 +14,7 @@ module.exports = (initialisationData) => {
 			gridDetails = new GridDetails(gridSize[0], gridSize[1])
 		} else if (!isEven(i)) {
 			var startInfo = row.split(' ')
-			let coordinates = new Coordinates(startInfo[0], startInfo[1])
+			let coordinates = new Coordinates(parseInt(startInfo[0]), parseInt(startInfo[1]))
 			let robotDetail = new RobotDetails(robotDetails.length + 1, coordinates, startInfo[2], (initialisationData[i + 1]).split(''))
 			robotDetails.push(robotDetail)
 		}

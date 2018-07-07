@@ -16,8 +16,12 @@ class Arena {
 	executeRobotCommand (robot, command) {
 		robot.doCommand(command, this.grid)
 	}
+
 	getRobotPositions () {
-		// returns array of Coords
+		return this.robots.map(robot => ({
+			coordinates: robot.coordinates,
+			orientation: robot.orientation
+		}))
 	}
 }
 
