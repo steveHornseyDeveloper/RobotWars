@@ -9,8 +9,8 @@ describe('Parse input tests', function () {
 			`${eastLimit} ${northLimit}`
 		]
 		const arenaDetails = parseInput(input)
-		assert.equal(arenaDetails.gridDetails.eastLimit, 99999)
-		assert.equal(arenaDetails.gridDetails.northLimit, 99999)
+		assert.equal(arenaDetails.gridDetails.eastLimit, eastLimit)
+		assert.equal(arenaDetails.gridDetails.northLimit, northLimit)
 	})
 
 	it('parses a start position correctly to an int', function () {
